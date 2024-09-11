@@ -1,12 +1,12 @@
-function closestPoint(pathNode, point, offset) {
-    var pathLength = pathNode.getTotalLength(),
+function closestPoint(pathNode, point, offset, from, to) {
+    var pathLength = to,
         precision = 20,
         best,
         bestLength,
         bestDistance = Infinity;
 
     // linear scan for coarse approximation
-    for (var scan, scanLength = 0, scanDistance; scanLength <= pathLength; scanLength += precision) {
+    for (var scan, scanLength = from, scanDistance; scanLength <= pathLength; scanLength += precision) {
         if ((scanDistance = distance2(scan = pathNode.getPointAtLength(scanLength))) < bestDistance) {
             best = scan, bestLength = scanLength, bestDistance = scanDistance;
         }

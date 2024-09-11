@@ -1,24 +1,43 @@
-const eyeCenter = document.querySelector('.main__eyeCenter')
 const eyeSvg = document.querySelector('.main__eye svg')
 const eyePath = document.querySelector('.curve')
 const eyeCircle = document.querySelector('.circle')
 
 const svgDistance = eyeSvg.getBoundingClientRect();
 
+const svgCenter = [svgDistance.x + (svgDistance.right - svgDistance.left) / 2, svgDistance.y + (svgDistance.bottom - svgDistance.top) / 2]
+
+const totalPathUnit = eyePath.getTotalLength() / 4
+
+const pathSplit = [
+    [totalPathUnit, 2 * totalPathUnit],
+
+    [2 * totalPathUnit, 3 * totalPathUnit],
+    [3 * totalPathUnit, 4 * totalPathUnit],
+
+    [0, totalPathUnit],
+]
+
 const handleMouseMove = (event) => {
-    const {pageX: x, pageY: y} = event
-    const {innerWidth: width, innerHeight: height} = window
-    const percentX = 100 * x / innerWidth
-    const percentY = 100 * y / innerHeight
+    const point = [event.pageX, event.pageY]
+    let pathToProceed = 0
 
+    if (point[0] < svgCenter[0]) {
+        if (point[1] < svgCenter[1]) {
+            pathToProceed = 0
+        } else {
+            pathToProceed = 3
+        }
 
-    const resultX = percentX
-    const resultY = percentY
+    } else {
+        if (point[1] < svgCenter[1]) {
+            pathToProceed = 1
+        } else {
+            pathToProceed = 2
+        }
+    }
 
-    /*eyeCenter.style.left = resultX + '%'
-    eyeCenter.style.top = resultY + '%'*/
+    const closestPointRes = closestPoint(eyePath, point, [svgDistance.x, svgDistance.y], pathSplit[pathToProceed][0], pathSplit[pathToProceed][1]);
 
-    const closestPointRes = closestPoint(eyePath, [event.pageX, event.pageY], [svgDistance.x, svgDistance.y]);
     eyeCircle.setAttribute('cx', closestPointRes[0]);
     eyeCircle.setAttribute('cy', closestPointRes[1]);
 }
