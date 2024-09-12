@@ -43,3 +43,32 @@
     max-width: 100%;
     cursor: pointer;
 }
+
+.main__menu {
+    width: 942px;
+    max-width: 100%;
+    font-size: 26px;
+    background-image: url("./assets/textures/menu_bg.png");
+    background-size: cover;
+    background-position: center center;
+    visibility: hidden;
+}
+
+.main__menu-open {
+    visibility: visible;
+}
+
+.main__menuItem {
+    padding: 19px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main__menu > .main__menuItem:not(.main__menu > .main__menuItem:last-child) {
+    border-bottom: 3px solid black;
+}
+
+.circle {
+    transform: translate(50%, 50%);
+    stroke-width: 38px;
+}

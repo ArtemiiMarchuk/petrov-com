@@ -1,6 +1,8 @@
 const eyeSvg = document.querySelector('.main__eye svg')
 const eyePath = document.querySelector('.curve')
 const eyeCircle = document.querySelector('.circle')
+const title = document.querySelector('.main__title')
+const menu = document.querySelector('.main__menu')
 
 const svgDistance = eyeSvg.getBoundingClientRect();
 
@@ -15,8 +17,29 @@ const pathSplit = [
     [0, totalPathUnit],
 ]
 
-const handleMouseMove = (event) => {
-    const point = [event.pageX, event.pageY]
+let cursorPointObj = {}
+let stopEyeMovement = false
+
+const cursorPoint = new Proxy(cursorPointObj, {
+    set: function (target, key, value) {
+        target[key] = value;
+
+        if (!stopEyeMovement) {
+            handleMouseMove(value)
+        }
+
+        return true;
+    }
+});
+
+document.onmousemove = (event) => {
+    cursorPoint.position = {
+        x: event.pageX,
+        y: event.pageY,
+    }
+}
+
+const getPathToProceed = (point) => {
     let pathToProceed = 0
 
     if (point[0] < svgCenter[0]) {
@@ -34,10 +57,46 @@ const handleMouseMove = (event) => {
         }
     }
 
-    const closestPointRes = closestPoint(eyePath, point, [svgDistance.x, svgDistance.y], pathSplit[pathToProceed][0], pathSplit[pathToProceed][1]);
-
-    eyeCircle.setAttribute('cx', closestPointRes[0]);
-    eyeCircle.setAttribute('cy', closestPointRes[1]);
+    return pathSplit[pathToProceed]
 }
 
-document.onmousemove = handleMouseMove
+
+const handleMouseMove = (mousePoint) => {
+    const point = [mousePoint.x, mousePoint.y]
+    const pathToProceed = getPathToProceed(point)
+
+    const closestPointRes = closestPoint(eyePath, point, [svgDistance.x, svgDistance.y], pathToProceed[0], pathToProceed[1]);
+
+    eyeCircle.style.transform = `translate(${closestPointRes[0]}px, ${closestPointRes[1]}px)`
+}
+
+let timer
+
+const handleClick = () => {
+    clearTimeout(timer)
+    const isOpen = menu.classList.contains('main__menu-open')
+
+    if (isOpen) {
+        menu.classList.remove('main__menu-open')
+        eyeCircle.style.strokeWidth = '38px'
+
+        const pathToProceed = getPathToProceed([cursorPoint.position.x, cursorPoint.position.y])
+        const closestPointRes = closestPoint(eyePath, [cursorPoint.position.x, cursorPoint.position.y], [svgDistance.x, svgDistance.y], pathToProceed[0], pathToProceed[1]);
+        eyeCircle.style.transform = `translate(${closestPointRes[0]}px, ${closestPointRes[1]}px)`
+
+        timer = setTimeout(() => {
+            eyeCircle.style.transition = ''
+        }, 500)
+
+        stopEyeMovement = false
+        return
+    }
+
+    stopEyeMovement = true
+    eyeCircle.style.transition = 'stroke-width 0.2s, transform 0.5s'
+    eyeCircle.style.strokeWidth = '18px'
+    eyeCircle.style.transform = `translate(50%, 50%)`
+    menu.classList.add('main__menu-open')
+}
+
+title.onclick = handleClick
