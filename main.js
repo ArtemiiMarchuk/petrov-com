@@ -10,10 +10,8 @@ const totalPathUnit = eyePath.getTotalLength() / 4
 
 const pathSplit = [
     [totalPathUnit, 2 * totalPathUnit],
-
     [2 * totalPathUnit, 3 * totalPathUnit],
     [3 * totalPathUnit, 4 * totalPathUnit],
-
     [0, totalPathUnit],
 ]
 
