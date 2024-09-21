@@ -41,6 +41,7 @@
 .main__title {
     margin-top: 8px;
     max-width: 100%;
+    height: auto;
     cursor: pointer;
 }
 
@@ -59,11 +60,18 @@
     position: relative;
     top: -100%;
     width: 100%;
-    font-size: 26px;
-    background-image: url("./assets/textures/menu_bg.png");
-    background-size: cover;
-    background-position: center center;
     transition: 0.2s;
+}
+
+.main__menuContent > img {
+    user-select: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    top: 0;
+    opacity: 0.6;
 }
 
 .main__menu-open {
@@ -71,12 +79,18 @@
 }
 
 .main__menuItem {
+    position: relative;
     padding: 19px;
     text-align: center;
     cursor: pointer;
 }
 
-.main__menuContent > .main__menuItem:not(.main__menuContent > .main__menuItem:last-child) {
+.main__menuItem img {
+    max-width: 100%;
+    user-select: none;
+}
+
+.main__menuItem:not(.main__menuItem-noBorder) {
     border-bottom: 3px solid black;
 }
 
