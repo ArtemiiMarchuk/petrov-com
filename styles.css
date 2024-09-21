@@ -45,17 +45,29 @@
 }
 
 .main__menu {
+    position: relative;
+    overflow: hidden;
     width: 942px;
     max-width: 100%;
+}
+
+.main__menu-open .main__menuContent {
+    top: 0
+}
+
+.main__menuContent {
+    position: relative;
+    top: -100%;
+    width: 100%;
     font-size: 26px;
     background-image: url("./assets/textures/menu_bg.png");
     background-size: cover;
     background-position: center center;
-    visibility: hidden;
+    transition: 0.2s;
 }
 
 .main__menu-open {
-    visibility: visible;
+    height: auto;
 }
 
 .main__menuItem {
@@ -64,7 +76,7 @@
     cursor: pointer;
 }
 
-.main__menu > .main__menuItem:not(.main__menu > .main__menuItem:last-child) {
+.main__menuContent > .main__menuItem:not(.main__menuContent > .main__menuItem:last-child) {
     border-bottom: 3px solid black;
 }
 
