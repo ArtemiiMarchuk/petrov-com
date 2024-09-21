@@ -39,6 +39,7 @@
 }
 
 .main__title {
+    position: relative;
     margin-top: 8px;
     max-width: 100%;
     height: auto;
