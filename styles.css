@@ -6,7 +6,7 @@
 
 .main {
     width: 100vw;
-    height: 100dvh;
+    height: auto;
     background-image: url("./assets/textures/main_bg.png");
     background-size: cover;
     background-position: center center;
@@ -19,7 +19,7 @@
     border-style: solid;
     border-image-repeat: stretch;
     width: 100%;
-    height: 100%;
+    min-height: calc(100dvh - 88px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,19 +47,17 @@
 }
 
 .main__menu {
-    position: relative;
     overflow: hidden;
     width: 942px;
     max-width: 100%;
 }
 
 .main__menu-open .main__menuContent {
-    top: 0
+    transform: translateY(0);
 }
 
 .main__menuContent {
-    position: relative;
-    top: -100%;
+    transform: translateY(-100%);
     width: 100%;
     transition: 0.2s;
 }
