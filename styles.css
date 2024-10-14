@@ -97,3 +97,13 @@
     transform: translate(50%, 50%);
     stroke-width: 38px;
 }
+
+@media screen and (max-width: 600px) {
+    .main__menuItem img {
+        max-width: 60%;
+    }
+
+    .main__menuItem {
+        padding: 10px;
+    }
+}
