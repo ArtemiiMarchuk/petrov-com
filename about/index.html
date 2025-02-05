@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="styles.css?ver=1">
+    <link rel="stylesheet" type="text/css" href="styles.css?ver=2">
     <meta name="theme-color" content="#7E7E7E">
     <title>About</title>
 </head>
@@ -17,6 +17,30 @@
 
 <div class="main">
     <div class="main__frame">
+        <div class="main__menu">
+            <div class="main__eye">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 421 249" fill="none">
+                    <defs>
+                        <pattern id="eye_center" patternUnits="userSpaceOnUse" width="442" height="281">
+                            <image href="/assets/textures/eye_center.png" x="0" y="0" width="442" height="281" />
+                        </pattern>
+                        <pattern id="eye_green" patternUnits="objectBoundingBox" patternContentUnits="objectBoundingBox"  width="1" height="1">
+                            <image href="/assets/textures/eye_green.png" x="0" y="0" width="1" height="1" />
+                        </pattern>
+                        <pattern id="eye_black" patternUnits="objectBoundingBox" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <image href="/assets/textures/eye_black.png" x="0" y="0" width="1" height="1" />
+                        </pattern>
+                    </defs>
+
+                    <path d="M421 124.5 C421 158 343.827 249 210.5 249 C76.9731 248.898 0 157.897 0 124.5 C0 91.3068 76.9731 0 210.5 0 C343.727 0 421 91.3068 421 124.5Z" fill="url(#eye_center)"/>
+                    <path d="M210.49 6C80.83 6 6 92.9401 6 124.52C6 156.38 80.83 243.04 210.49 243.04C340 243.04 414.98 156.38 414.98 124.52C414.98 92.9401 340 6 210.49 6ZM210.49 238.15C86.17 238.15 11.21 155.07 11.21 124.52C11.21 94.25 86.17 10.89 210.49 10.89C334.65 10.89 409.77 94.25 409.77 124.52C409.77 155.07 334.65 238.15 210.49 238.15Z" fill="black"/>
+                    <circle cx="210.5" cy="124.5" r="64" fill="url(#eye_black)" stroke="url(#eye_green)" stroke-width="38" />
+                </svg>
+            </div>
+
+            <div class="main__menuContent"></div>
+        </div>
+
         <p class="main__text">
             The works on view are made
             in the technique of paper collage,
@@ -64,6 +88,7 @@
             but of the desire to speak
             of the transcendent.
         </p>
+
         <div class="main__textShadow"></div>
     </div>
 </div>

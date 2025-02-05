@@ -26,7 +26,7 @@
 }
 
 .main__textShadow {
-    height: 70px;
+    height: 71px;
     width: 100%;
     position: sticky;
     bottom: 0;
@@ -36,10 +36,32 @@
 }
 
 .main__text {
-    padding: 0 33px 0 33px;
+    padding: 0 71px 0 71px;
     font-family: "Poppins", serif;
     font-weight: 600;
     font-size: 21px;
     line-height: 33px;
     color: white;
+    margin-top: 58px;
+}
+
+.main__eye {
+    width: 180px;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 33px;
+}
+
+@media screen and (max-width: 600px) {
+    .main__eye {
+        width: 125px;
+        margin: auto;
+    }
+
+    .main__text {
+        padding: 0 33px 0 33px;
+    }
 }
