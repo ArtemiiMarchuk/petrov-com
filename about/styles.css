@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100vw;
+    height: auto;
+    background-image: url("../assets/textures/main_bg.png");
+    background-size: cover;
+    background-position: center center;
+    padding: 44px;
+}
+
+.main__frame {
+    overflow-y: auto;
+    position: relative;
+    border-image: url("../assets/textures/main_frame.png") 1%;
+    border-width: 13px;
+    border-style: solid;
+    border-image-repeat: stretch;
+    width: 100%;
+    height: calc(100dvh - 88px);
+    padding-top: 33px;
+}
+
+.main__textShadow {
+    height: 70px;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    mask-image: linear-gradient(to bottom,transparent 0%,black 70%);
+    backdrop-filter: blur(10px);
+    transition: 0.1s;
+}
+
+.main__text {
+    padding: 0 33px 0 33px;
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 33px;
+    color: white;
+}
