@@ -43,25 +43,104 @@
     line-height: 33px;
     color: white;
     margin-top: 58px;
+    text-align: left;
 }
 
 .main__eye {
+    position: relative;
     width: 180px;
     height: auto;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 33px;
+    z-index: 2;
+}
+
+.main__eye a {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.main__menu {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 33px;
+}
+
+.main__menu:hover .main__menuContent {
+    height: 286px;
+}
+
+.main__menuContent {
+    top: 50%;
+    height: 0;
+    position: absolute;
+    width: 388px;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main__menuContent > img {
+    user-select: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    top: 0;
+    z-index: 0;
+}
+
+.main__menuItem {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.main__menuItem a {
+    display: block;
+    padding: 19px;
+    cursor: pointer;
+}
+
+.main__menuItem img {
+    max-width: 100%;
+    user-select: none;
+}
+
+.main__menuItem:not(.main__menuItem-noBorder) {
+    border-bottom: 3px solid black;
 }
 
 @media screen and (max-width: 600px) {
+    .main__menuContent {
+        left: -80px;
+    }
+
+    .main__menu {
+        padding-left: 0;
+    }
+
+    .main__frame {
+        text-align: center;
+    }
+
     .main__eye {
         width: 125px;
-        margin: auto;
     }
 
     .main__text {
         padding: 0 33px 0 33px;
+    }
+
+    .main__menuContent {
+        width: 286px;
     }
 }
