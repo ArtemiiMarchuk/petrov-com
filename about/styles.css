@@ -25,16 +25,6 @@
     padding-top: 33px;
 }
 
-.main__textShadow {
-    height: 71px;
-    width: 100%;
-    position: sticky;
-    bottom: 0;
-    mask-image: linear-gradient(to bottom,transparent 0%,black 70%);
-    backdrop-filter: blur(10px);
-    transition: 0.1s;
-}
-
 .main__text {
     padding: 0 71px 0 71px;
     font-family: "Poppins", serif;
