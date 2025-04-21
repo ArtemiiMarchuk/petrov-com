@@ -22,19 +22,6 @@
     border-image-repeat: stretch;
     width: 100%;
     height: calc(100dvh - 88px);
-    padding-top: 33px;
-}
-
-.main__text {
-    padding: 0 71px 0 71px;
-    font-family: "Poppins", serif;
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 33px;
-    color: white;
-    margin-top: 58px;
-    text-align: left;
-    margin-bottom: 33px;
 }
 
 .main__eye {
@@ -55,9 +42,11 @@
 
 .main__menu {
     position: relative;
+    z-index: 2;
     cursor: pointer;
     display: inline-block;
     padding-left: 33px;
+    margin-top: 33px;
 }
 
 .main__menu:hover .main__menuContent {
@@ -110,6 +99,61 @@
     border-bottom: 3px solid black;
 }
 
+.main__hand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__handImgWrapper {
+    height: 100%;
+    width: 100%;
+    padding: 54px 12px;
+}
+
+.main__handImgWrapper svg {
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.main__card {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.main__cardLink {
+    all: unset;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.main__cardLinkText {
+    margin-left: 4px;
+    font-family: "Poppins", serif;
+    font-size: 13px;
+    line-height: 0;
+    font-weight: 600;
+}
+
 @media screen and (max-width: 600px) {
     .main__menuContent {
         left: -80px;
@@ -125,10 +169,6 @@
 
     .main__eye {
         width: 125px;
-    }
-
-    .main__text {
-        padding: 0 33px 0 33px;
     }
 
     .main__menuContent {
